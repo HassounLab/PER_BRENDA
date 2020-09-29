@@ -1,0 +1,294 @@
+{
+    "AC": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "ACTIVATING COMPOUND",
+        "UNIPROT": "UNIPROT"
+    },
+    "AP": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "APPLICATION",
+        "UNIPROT": "UNIPROT"
+    },
+    "CF": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "COFACTOR",
+        "UNIPROT": "UNIPROT"
+    },
+    "CL": {
+        "COMMENTARY": "CLONED (Commentary)",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "UNIPROT": "UNIPROT"
+    },
+    "CR": {
+        "COMMENTARY": "CRYSTALLIZATION (Commentary)",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "UNIPROT": "UNIPROT"
+    },
+    "EN": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "PROTEIN VARIANTS",
+        "UNIPROT": "UNIPROT"
+    },
+    "EXP": {
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "EXPRESSION",
+        "COMMENTARY": "COMMENTARY",
+        "UNIPROT": "UNIPROT"
+    },
+    "GI": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "GENERAL INFORMATION",
+        "UNIPROT": "UNIPROT"
+    },
+    "GS": {
+        "COMMENTARY": "GENERAL STABILITY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "UNIPROT": "UNIPROT"
+    },
+    "IC50": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "SPECIAL": "INHIBITOR",
+        "TITLE": "IC50 VALUE",
+        "UNIPROT": "UNIPROT"
+    },
+    "IN": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "INHIBITOR",
+        "UNIPROT": "UNIPROT"
+    },
+    "KI": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "SPECIAL": "INHIBITOR",
+        "TITLE": "Ki VALUE",
+        "UNIPROT": "UNIPROT"
+    },
+    "KKM": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "SPECIAL": "SUBSTRATE",
+        "TITLE": "kcat/KM VALUE",
+        "UNIPROT": "UNIPROT"
+    },
+    "KM": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "SPECIAL": "SUBSTRATE",
+        "TITLE": "KM VALUE",
+        "UNIPROT": "UNIPROT"
+    },
+    "LO": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "LOCALIZATION",
+        "UNIPROT": "UNIPROT"
+    },
+    "ME": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "METALS and IONS",
+        "UNIPROT": "UNIPROT"
+    },
+    "MW": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "MOLECULAR WEIGHT",
+        "UNIPROT": "UNIPROT"
+    },
+    "NSP": {
+        "COMMENTARY": "COMMENTARY (Substrate)",
+        "COMMENTARY (Product)": "COMMENTARY (Product)",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "PRODUCT": "NATURAL PRODUCT",
+        "SPECIAL": "REVERSIBILITY",
+        "SUBSTRATE": "NATURAL SUBSTRATE ",
+        "UNIPROT": "UNIPROT"
+    },
+    "OS": {
+        "COMMENTARY": "OXIDATION STABILITY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "UNIPROT": "UNIPROT"
+    },
+    "OSS": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "ORGANIC SOLVENT",
+        "UNIPROT": "UNIPROT"
+    },
+    "PHO": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "pH OPTIMUM",
+        "UNIPROT": "UNIPROT"
+    },
+    "PHR": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "pH RANGE",
+        "UNIPROT": "UNIPROT"
+    },
+    "PHS": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "pH STABILITY",
+        "UNIPROT": "UNIPROT"
+    },
+    "PI": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "pI VALUE",
+        "UNIPROT": "UNIPROT"
+    },
+    "PM": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "POSTTRANSLATIONAL MODIFICATION",
+        "UNIPROT": "UNIPROT"
+    },
+    "PR": {
+        "COMMENTARY": "COMMENTARY",
+        "DATABASE": "SEQUENCE DB",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "ORGANISM",
+        "UNIPROT": "UNIPROT"
+    },
+    "PU": {
+        "COMMENTARY": "PURIFICATION (Commentary)",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "UNIPROT": "UNIPROT"
+    },
+    "RE": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "REACTION",
+        "UNIPROT": "UNIPROT"
+    },
+    "REN": {
+        "COMMENTARY": "RENATURED/Commentary",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "UNIPROT": "UNIPROT"
+    },
+    "RF": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "TITLE": "REFERENCES"
+    },
+    "RN": {
+        "TITLE": "ACCEPTED NAME (IUPAC)"
+    },
+    "RT": {
+        "TITLE": "REACTION TYPE"
+    },
+    "SA": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "SPECIFIC ACTIVITY",
+        "UNIPROT": "UNIPROT"
+    },
+    "SN": {
+        "TITLE": "SYSTEMATIC NAME"
+    },
+    "SP": {
+        "COMMENTARY": "COMMENTARY (Substrate)",
+        "COMMENTARY (Product)": "COMMENTARY (Product)",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "PRODUCT": "PRODUCT",
+        "SPECIAL": "REVERSIBILITY",
+        "SUBSTRATE": "SUBSTRATE",
+        "UNIPROT": "UNIPROT"
+    },
+    "SS": {
+        "COMMENTARY": "STORAGE STABILITY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "UNIPROT": "UNIPROT"
+    },
+    "ST": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "SOURCE TISSUE",
+        "UNIPROT": "UNIPROT"
+    },
+    "SU": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "SUBUNIT",
+        "UNIPROT": "UNIPROT"
+    },
+    "SY": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "SYNONYM",
+        "UNIPROT": "UNIPROT"
+    },
+    "TN": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "SPECIAL": "SUBSTRATE",
+        "TITLE": "TURNOVER NUMBER",
+        "UNIPROT": "UNIPROT"
+    },
+    "TO": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "TEMPERATURE OPTIMUM",
+        "UNIPROT": "UNIPROT"
+    },
+    "TR": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "TEMPERATURE RANGE",
+        "UNIPROT": "UNIPROT"
+    },
+    "TS": {
+        "COMMENTARY": "COMMENTARY",
+        "LITERATURE": "LITERATURE",
+        "ORGANISM": "ORGANISM",
+        "TITLE": "TEMPERATURE STABILITY",
+        "UNIPROT": "UNIPROT"
+    }
+}

@@ -1,0 +1,5 @@
+{
+	"EC": ["1.1.1.1","1.1.1.2","2.1.1.1"],
+	"subcategory": "AC",
+	"fields": ["COMMENTARY", "ACTIVATING COMPOUND", "UNIPROT"]
+}
