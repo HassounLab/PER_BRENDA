@@ -3,7 +3,7 @@
 **Overview**<br>
 Aggregating bulk enzyme information from BRENDA Enzymes is accessible through both a SOAP interface and text file. Currently, the SOAP interface requires an extensive knowledge of the provided methods, and for bulk enzyme data applications repeated queries of the text file are costly in terms of time and efficiency.
 
-PERBRENDA converts the provided BRENDA text file into a JSON structure which mirrors BRENDA's structure. This intuitive design allows a user to quickly and easily perform queries for desired information across various enzymes. Additionally included is the BRENDAExtract interface which allows for simple query requests from a template.
+PER BRENDA converts the provided BRENDA text file into a JSON which mirrors BRENDA's structural organization. This intuitive design allows a user to quickly and easily perform queries for desired information across various enzymes. The parsed output JSON can then be traversed for EC numbers, categories, subcategories, and fields of the JSON.
 
 # Dependencies
 `Python 3.8`
@@ -13,7 +13,7 @@ PERBRENDA converts the provided BRENDA text file into a JSON structure which mir
 `Python BRENDAParser.py --ifile brenda_download.txt --ofile parsed.json` *optionally --efile error.json*
 
 **How to extract**<br>
-Extractions may be executed provided with a parsed JSON file name, output file name, and extraction parameters. These parameters include EC numbers subcategories, and BRENDA column names of interest. For command line extractions, a templatefile name may be included to extract these parameters.
+Extractions may be executed provided with a parsed JSON file name, output file name, and extraction parameters. These parameters include EC numbers subcategories, and BRENDA column names of interest. For command line extractions, a templatefile should be included to extract these parameters. For extractions at the subcategory level, a csvfile may be additionally provided for a csv output of the subcategory. For extractions with Substrate/Product and Natural Substrate/Natural Product, a compoundfile may be provided which may be processed on MetaboAnalyst for KEGG, PubChem, or other database ID numbers.
 
 # How to extract from the json?
 `Python BRENDAExtract.py --ifile parsed.json --templatefile template.json --ofile extract.json`<br> *optionally --csvfile brenda.csv --compoundfile comps.txt* 
