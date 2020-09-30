@@ -5,14 +5,18 @@ Aggregating bulk enzyme information from BRENDA Enzymes is accessible through bo
 
 PERBRENDA converts the provided BRENDA text file into a JSON structure which mirrors BRENDA's structure. This intuitive design allows a user to quickly and easily perform queries for desired information across various enzymes. Additionally included is the BRENDAExtract interface which allows for simple query requests from a template.
 
-# Getting Started
+# Dependencies
 `Python 3.8`
+`pandas`
 
 # How to parse the textfile?
 `Python BRENDAParser.py --ifile brenda_download.txt --ofile parsed.json` *optionally --efile error.json*
 
-# How to query the json?
-`Python BRENDAExtract.py --ifile parsed.json --templatefile template.json --ofile query.json` *optionally --csvfile brenda.csv --compoundfile comps.txt* 
+**How to extract**<br>
+Extractions are available for provided 
+
+# How to extract from the json?
+`Python BRENDAExtract.py --ifile parsed.json --templatefile template.json --ofile extract.json` *optionally --csvfile brenda.csv --compoundfile comps.txt* 
 
 
 Avaliable fields are as follows:
