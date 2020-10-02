@@ -23,6 +23,7 @@ Fields: Columns in each subcategory (example (under Activating Compounds) ACTIVA
 
 # How to extract from the json?
 `Python BRENDAExtract.py --ifile parsed.json --templatefile template.json --ofile extract.json`<br> *optionally --csvfile brenda.csv --compoundfile comps.txt* <br>
+
 To extract multiple EC numbers under the same branch, use `'_'` at the end of the stem (example '1.1._') 
 
 
