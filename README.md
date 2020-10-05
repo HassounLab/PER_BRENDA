@@ -16,7 +16,7 @@ PER BRENDA converts the provided BRENDA text file into a JSON which mirrors BREN
 # How to extract from the json?
 `Python BRENDAExtract.py --ifile parsed.json --templatefile template.json --ofile extract.json`<br> *optionally --csvfile brenda.csv --compoundfile comps.txt* <br>
 
-Extractions may be executed provided with a parsed JSON file name, output file name, and extraction parameters. These parameters include EC numbers subcategories, and BRENDA column names of interest. For command line extractions, a templatefile should be included to extract these parameters. For extractions at the subcategory level, a csvfile may be additionally provided for a csv output of the subcategory. For extractions with Substrate/Product and Natural Substrate/Natural Product, a compoundfile may be provided which may be processed on MetaboAnalyst for KEGG, PubChem, or other database ID numbers.
+Extractions may be executed provided with a parsed JSON file name, output file name, and extraction parameters. These parameters include EC numbers, subcategories, and fields of interest. For command line extractions, a templatefile should be included to extract these parameters, an example template may be found in entryTemplate.json. For extractions at the subcategory level, a csvfile may be additionally provided for a csv output of the subcategory. For extractions with Substrate/Product and Natural Substrate/Natural Product, a compoundfile may be provided which may be processed on MetaboAnalyst for KEGG, PubChem, or other database ID numbers.
 
 Category: Labels shown in BRENDA sidebar (example Enzyme-Ligand Interactions)
 
