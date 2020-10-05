@@ -24,7 +24,7 @@ Subcategory: Labels shown under each category (example Activating Compounds)
 
 Fields: Columns in each subcategory (example (under Activating Compounds) ACTIVATING COMPOUND, UNIPROT, or COMMENTARY) 
 
-To extract multiple EC numbers under the same branch, use `'_'` at the end of the stem (example '1.1._') 
+To extract multiple EC numbers under the same branch, use `'.'` at the end of the stem (example '1.1.') 
 
 
 Avaliable fields are as follows:
