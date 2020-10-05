@@ -33,7 +33,7 @@ class extract:
 
 		copyEC = EC
 		for ecR in copyEC:
-			if ecR[-1] == '_':
+			if ecR[-1] == '.':
 				for ecC in jsn:
 					if ecC.startswith(ecR[0:-1]):
 						EC.append(ecC)
