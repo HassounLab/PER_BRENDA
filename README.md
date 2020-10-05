@@ -6,7 +6,7 @@ Aggregating bulk enzyme information from BRENDA Enzymes is accessible through bo
 PER BRENDA converts the provided BRENDA text file into a JSON which mirrors BRENDA's structural organization. This intuitive design allows a user to quickly and easily perform queries for desired information across various enzymes. The parsed output JSON can then be traversed for EC numbers, categories, subcategories, and fields of the JSON.
 
 # Dependencies
-`Python 3.8`
+`Python 3.8` <br>
 `pandas`
 
 # How to parse the textfile?
