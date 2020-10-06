@@ -1,3 +1,18 @@
+# 
+#
+#                       BRENDAEParser.py
+#  
+#       Authors:  Thomas McNulty 
+#       Date:     9/28/20
+#  
+#       summary
+#  
+#       Parser script. Accepts a texfile and converts it into
+#       JSON format similar to the BRENDA database. 
+#  
+#  
+
+
 import json
 import getopt, sys
 import time
@@ -13,9 +28,8 @@ def main():
 	outfile = ''
 	errorfile = None
 
-	#argument handleing
 	try:
-		optList, args = getopt.getopt(sys.argv[1:], 'lhi:o:e', ["ifile=","ofile=","efile="])
+		optList, args = getopt.getopt(sys.argv[1:], 'hi:o:e', ["ifile=","ofile=","efile="])
 	except getopt.GetoptError:
 		print('BRENDAParser.py --infile <inputfile> --ofile <outputfile>')
 		sys.exit(2)
@@ -33,6 +47,12 @@ def main():
 
 		elif opt in ("-e", "--efile"):
 			errorfile = arg
+
+	parseFile(brendaData, infile, outfile, errorfile, columnValues)
+
+	
+#Runner for parser, calls functions to convert text file into JSON
+def parseFile(brendaData, infile, outfile, errorfile, columnValues):
 
 	with open(infile) as brenda:
 		currID, prevLine, currSubClass = [""]*3
@@ -67,7 +87,6 @@ def main():
 	text_file = open(outfile, 'wt')
 	text_file.write(parsed)
 	print('Done')
-
 
 #Creates two header columns for SP and NSP
 def spColumns(brendaData, columnValues, ec, sub):
@@ -594,7 +613,7 @@ def commentStack(entry, startIndex):
 	return entry, comment
 
 
-#run
+#run abd time
 start_time = time.time()
 main()
 print("--- %s seconds ---" % (time.time() - start_time))
