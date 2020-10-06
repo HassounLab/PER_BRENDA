@@ -4,6 +4,11 @@
 Enzyme information from the BRENDA database is accessible through both a SOAP interface. Currently, the SOAP interface requires an extensive knowledge of the provided methods. Repeated queries of the text file, which are costly in terms of time and efficiency, are needed to gather enzymatic information for machine learning applications. 
 
 PER BRENDA converts the provided BRENDA text file into a JSON which mirrors BRENDA's structural organization. This intuitive design allows a user to quickly and easily perform queries for desired information across various enzymes. The parsed output JSON can then be traversed for EC numbers, categories, subcategories, and fields of the JSON. an Aptional parameter allows for extracting the file in a comma sepa-rated textfile. 
+
+Feel free to use this code!  But if you do, please provide reference to the following publciation:
+TBA 
+
+
 # Dependencies
 `Python 3.8` <br>
 `pandas`
