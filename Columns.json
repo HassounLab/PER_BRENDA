@@ -126,7 +126,7 @@
         "ORGANISM": "ORGANISM",
         "PRODUCT": "NATURAL PRODUCT",
         "SPECIAL": "REVERSIBILITY",
-        "SUBSTRATE": "NATURAL SUBSTRATE ",
+        "SUBSTRATE": "NATURAL SUBSTRATE",
         "UNIPROT": "UNIPROT"
     },
     "OS": {
