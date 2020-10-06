@@ -20,7 +20,9 @@ TBA
 # How to extract from the json?
 `Python perBRENDAExtract.py --ifile parsed.json --templatefile template.json --ofile extract.json`<br> *optionally --csvfile brenda.csv --compoundfile comps.txt* <br>
 
-Extractions may be executed provided with a parsed JSON file name, output file name, and extraction parameters. These parameters include EC numbers, subcategories, and fields of interest. For command line extractions, a templatefile should be included to extract these parameters, an example template may be found in entryTemplate.json. For the extraction of a single subcategory, a csvfile may be provided for a csv output of the subcategory. For extractions with Substrate/Product and Natural Substrates a compoundfile which will contain a list of all the compound names in the extraction result without duplicates. The file may be processed on MetaboAnalyst for KEGG, PubChem, and other database ID numbers.
+Extractions may be executed provided with a parsed JSON file name, output file name, and extraction parameters. These parameters include EC numbers, subcategories, and fields of interest. For command line extractions, a templatefile should be included to extract these parameters, an example template may be found in entryTemplate.json and categoryTemplate.json.
+
+For the extraction of a single subcategory, a csvfile may be provided for a csv output of the subcategory. For extractions with Substrate/Product and Natural Substrates a compoundfile which will contain a list of all the compound names in the extraction result without duplicates. The file may be processed on MetaboAnalyst for KEGG, PubChem, and other database ID numbers.
 
 Category: Labels shown in BRENDA sidebar (example Enzyme-Ligand Interactions)
 
