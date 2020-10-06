@@ -1,20 +1,19 @@
 # PER BRENDA
 
 **Overview**<br>
-Aggregating bulk enzyme information from BRENDA Enzymes is accessible through both a SOAP interface and text file. Currently, the SOAP interface requires an extensive knowledge of the provided methods, and for bulk enzyme data applications repeated queries of the text file are costly in terms of time and efficiency.
+Enzyme information from the BRENDA database is accessible through both a SOAP interface. Currently, the SOAP interface requires an extensive knowledge of the provided methods. Repeated queries of the text file, which are costly in terms of time and efficiency, are needed to gather enzymatic information for machine learning applications. 
 
-PER BRENDA converts the provided BRENDA text file into a JSON which mirrors BRENDA's structural organization. This intuitive design allows a user to quickly and easily perform queries for desired information across various enzymes. The parsed output JSON can then be traversed for EC numbers, categories, subcategories, and fields of the JSON.
-
+PER BRENDA converts the provided BRENDA text file into a JSON which mirrors BRENDA's structural organization. This intuitive design allows a user to quickly and easily perform queries for desired information across various enzymes. The parsed output JSON can then be traversed for EC numbers, categories, subcategories, and fields of the JSON. an Aptional parameter allows for extracting the file in a comma sepa-rated textfile. 
 # Dependencies
 `Python 3.8` <br>
 `pandas`
 
 # How to parse the textfile?
-`Python BRENDAParser.py --ifile brenda_download.txt --ofile parsed.json` *optionally --efile error.json*
+`Python perBRENDAParser.py --ifile brenda_download.txt --ofile parsed.json` *optionally --efile error.json*
 
 
 # How to extract from the json?
-`Python BRENDAExtract.py --ifile parsed.json --templatefile template.json --ofile extract.json`<br> *optionally --csvfile brenda.csv --compoundfile comps.txt* <br>
+`Python perBRENDAExtract.py --ifile parsed.json --templatefile template.json --ofile extract.json`<br> *optionally --csvfile brenda.csv --compoundfile comps.txt* <br>
 
 Extractions may be executed provided with a parsed JSON file name, output file name, and extraction parameters. These parameters include EC numbers, subcategories, and fields of interest. For command line extractions, a templatefile should be included to extract these parameters, an example template may be found in entryTemplate.json. For the extraction of a single subcategory, a csvfile may be provided for a csv output of the subcategory. For extractions with Substrate/Product and Natural Substrates a compoundfile which will contain a list of all the compound names in the extraction result without duplicates. The file may be processed on MetaboAnalyst for KEGG, PubChem, and other database ID numbers.
 
