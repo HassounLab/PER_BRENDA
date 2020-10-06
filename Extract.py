@@ -14,24 +14,28 @@
 #
 # 
 
-
 import json
 import pandas as pd
+import sys
 
 class extract:
 
-	#Extraction function
-	def extract(self, jsn, outfile=None, csvFile, compFile, EC, category = None, subcategory = None, fields = None):
+	#main extraction function
+	def extract(self, jsn, outfile, csvFile, compFile, EC, category = None, subcategory = None, fields = None):
 		pd.set_option("display.max_rows", None, "display.max_columns", None)
 
+		#makes list from EC if not list
 		if type(EC) is not list:
 			EC = [EC]
 
+		#get all EC numbers
 		if EC == []:
 			for ec in jsn:
 				EC.append(ec)
 
 		copyEC = EC
+		
+		#EC number tree
 		for ecR in copyEC:
 			if ecR[-1] == '.':
 				for ecC in jsn:
@@ -41,74 +45,97 @@ class extract:
 		
 		Extract = {}
 
-		#Query specific EC numbers
+		#Extract specific EC numbers
 		if category is None and subcategory is None and fields is None:
 			for ec in EC:
 				Extract[ec] = jsn[ec]
 
-		#category extraction
-		elif category and not subcategory and fields is None:
-			Extract = self.categoryExtract(jsn, EC, category)	
+		else:
 
-		#subcategory extraction
-		elif not category and subcategory:
-			if not fields:
-				for ec in EC:
-					Extract[ec] = []
-					for entry in jsn[ec][subcategory]:
-						Extract[ec].append(entry)
-			else:
-				for ec in EC:
-					Extract[ec] = []
-					for entry in jsn[ec][subcategory]:
-						values = {}
-						for field in fields:
-							values[field] = entry[field]
-						Extract[ec].append(values)
+			#Warnings and exits
+			if category == None and subcategory == None:
+				sys.exit("Please provide a category and or subcategory")
+
+			if type(subcategory) == str:
+				subcategory = [subcategory]
+			elif not subcategory:
+				subcategory = []
+
+			if type(fields) == str:
+				fields = [fields]				
+
+			if category:
+				subcategory = subcategory + self.categoryExtract(category)
+
+			if len(subcategory) > 1 and fields:
+				print("Warning: Fields do not work with category or more than 1 subcategory")
+
+			if len(subcategory)>1 and csvFile:
+				print("Warning: csv only for 1 subcategory")
+
+			if len(subcategory)>1 and compFile:
+				print("Warning: compoundFile only for 1 subcategory")
+
+			#One subcategory extractions
+			if len(subcategory) == 1:
+				if fields:
+					for ec in EC:
+						Extract[ec] = []
+						for entry in jsn[ec][subcategory[0]]:
+							values = {}
+							for field in fields:
+								values[field] = entry[field]
+							Extract[ec].append(values)
+				else:
+					for ec in EC:
+						Extract[ec] = []
+						for entry in jsn[ec][subcategory[0]]:
+							Extract[ec].append(entry)
 						
-		else:			
-			if category and fields:
-				print("Do not provide fields with category")
 
-		if compFile and subcategory != 'SP' and subcategory != 'NSP':
-			print('Can not get compounds for non SP/NSP')
+				if compFile and subcategory[0] != 'SP' and subcategory[0] != 'NSP':
+					print('Can not get compounds for non SP/NSP')
 
-		elif compFile and not category and subcategory == "SP":			
-			if "PRODUCT" not in fields and "SUBSTRATE" not in fields:
-				print("Please include at least 1 compound field (PRODUCT or SUBSTRATE)")
+				elif compFile and not category and subcategory[0] == "SP":			
+					if fields != None and ("PRODUCT" not in fields and "SUBSTRATE" not in fields):
+						print("Failed: Please include at least 1 compound field (PRODUCT or SUBSTRATE)")
+					else:
+						self.makeCompFile("SUBSTRATE", "PRODUCT", Extract, compFile)
+			
+				elif compFile and not category and subcategory[0] == "NSP":
+					if fields != None and ("NATURAL PRODUCT" not in fields and "NATURAL SUBSTRATE" not in fields):
+						print("Failed: Please include at least 1 compound field (NATURAL PRODUCT or NATURAL SUBSTRATE)")
+					else:
+						self.makeCompFile("NATURAL SUBSTRATE", "NATURAL PRODUCT", Extract, compFile)
+
+				if csvFile:
+					csv = []
+					for ec in Extract:
+						for entry in Extract[ec]:
+							clentry = entry.copy()
+							clentry["EC Number"] = ec
+							csv.append(clentry)
+
+					
+					pxl = pd.DataFrame(csv)
+					pxl.to_csv(csvFile)
+
 			else:
-				self.makeCompFile("SUBSTRATE", "PRODUCT", Extract, compFile)
-	
-		elif compFile and not category and subcategory == "NSP":
-			if "NATURAL PRODUCT" not in fields and "NATURAL SUBSTRATE" not in fields:
-				print("Please include at least 1 compound field (NATURAL PRODUCT or NATURAL SUBSTRATE)")
-			else:
-				self.makeCompFile("NATURAL SUBSTRATE", "NATURAL PRODUCT", Extract, compFile)
+				for ec in EC:
+					Extract[ec] = {}
+					for sub in subcategory:
+						Extract[ec][sub] = jsn[ec][sub]
 				
 
-		if subcategory and csvFile:
-			csv = []
-			for ec in Extract:
-				for entry in Extract[ec]:
-					clentry = entry.copy()
-					clentry["EC Number"] = ec
-					csv.append(clentry)
-
 			
-			pxl = pd.DataFrame(csv)
-			pxl.to_csv(csvFile)
 
-		elif csvFile:
-			print("Can not make csv for non-subcategory extract")
-
-		if outfile:
-			parsed = json.dumps(Extract, indent=4, sort_keys=True)
-			text_file = open(outfile, 'wt')
-			text_file.write(parsed)
-			text_file.close()
+		parsed = json.dumps(Extract, indent=4, sort_keys=True)
+		text_file = open(outfile, 'wt')
+		text_file.write(parsed)
+		text_file.close()
 
 
-	# Creates compound file
+
 	def makeCompFile(self, substrateName, productName, Extract, compFile):
 		compList = set()
 		for ec in Extract:
@@ -131,9 +158,9 @@ class extract:
 		self.extract(jsn = infile, outfile = outfile, csvFile = csv, compFile = compFile, **template)
 
 
-	# Extracts based on category.
-	def categoryExtract(self, jsn, EC, category):
-		Extract = {}
+	# Queries based on category.
+	def categoryExtract(self, category):
+		Sub = []
 		Enz_nom = ["SY", "RT", "RE", "SN","ID", "RN"]
 		Enz_lig = ["SP","NSP","CF","ME","IN","AC"]
 		Func_par = ["KM","TN","IC50","KKM","KI","PHO","PHR","TO","TR","SA","PI"]
@@ -144,40 +171,26 @@ class extract:
 		Org_rel = ["LO","ST","PR"]
 		Refs = ["RF"]
 
+		if category == 'Enzyme Nomenclature':
+			Sub = Enz_nom
+		elif category == 'Enzyme Ligand Interactions':
+			Sub = Enz_lig
+		elif category == 'Functional Parameters':
+			Sub = Func_par
+		elif category == 'Organism Related Information':
+			Sub = Org_rel
+		elif category == 'General Information':
+			Sub = Gen_info
+		elif category == 'Enzyme Structure':
+			Sub = Enz_str
+		elif category == 'Molecular Properties':
+			Sub = Mol_p
+		elif category == 'Applications':
+			Sub = Apl
+		elif category == 'References':
+			Sub = Refs
+		else:
+			sys.exit("Invalid category")
 
-		for ec in EC:
-			Extract[ec] = {}
-			if category == 'Enzyme Nomenclature':
-				for sub in Enz_nom:
-					Extract[ec][sub] = jsn[ec][sub]
-			elif category == 'Enzyme Ligand Interactions':
-				for sub in Enz_lig:
-					Extract[ec][sub] = jsn[ec][sub]
-			elif category == 'Functional Parameters':
-				for sub in Func_par:
-					Extract[ec][sub] = jsn[ec][sub]
-			elif category == 'Organism Related Information':
-				for sub in Org_rel:
-					Extract[ec][sub] = jsn[ec][sub]
-			elif category == 'General Information':
-				for sub in Gen_info:
-					Extract[ec][sub] = jsn[ec][sub]
-			elif category == 'Enzyme Structure':
-				for sub in Enz_str:
-					Extract[ec][sub] = jsn[ec][sub]
-			elif category == 'Molecular Properties':
-				for sub in Mol_p:
-					Extract[ec][sub] = jsn[ec][sub]
-			elif category == 'Applications':
-				for sub in Apl:
-					Extract[ec][sub] = jsn[ec][sub]
-			elif category == 'References':
-				for sub in Refs:
-					Extract[ec][sub] = jsn[ec][sub]
-		return Extract
+		return Sub
 	
-
-
-
-
-
