@@ -65,7 +65,10 @@ class extract:
 				fields = [fields]				
 
 			if category:
-				subcategory = subcategory + self.categoryExtract(category)
+				if type(category) == str:
+					category = [category]
+				for cat in category:
+					subcategory = subcategory + self.categoryExtract(cat)
 
 			if len(subcategory) > 1 and fields:
 				print("Warning: Fields do not work with category or more than 1 subcategory")
@@ -161,7 +164,7 @@ class extract:
 	# Queries based on category.
 	def categoryExtract(self, category):
 		Sub = []
-		Enz_nom = ["SY", "RT", "RE", "SN","ID", "RN"]
+		Enz_nom = ["SY", "RT", "RE", "SN", "RN"]
 		Enz_lig = ["SP","NSP","CF","ME","IN","AC"]
 		Func_par = ["KM","TN","IC50","KKM","KI","PHO","PHR","TO","TR","SA","PI"]
 		Enz_str = ["CR","MW","PM","SU","EN"]
