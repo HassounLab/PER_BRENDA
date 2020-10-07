@@ -1,18 +1,19 @@
 # 
 #
 #                       Extract.py
-#  
-#       Authors:  Thomas McNulty 
+# 
 #       Date:     9/28/20
 #  
-#       summary
-#  
-#      Extract class. Capable of extracting EC numbers, categories,
-#      subcategories, or fields of subcategories from the parsed JSON file.
-# 	   Provided with a csv filename or compound file name additional outputs
-#      to JSON may be recieved.
+#      PER BRENDA: Parse and Extract tool for Machine Learning applications using the BRENDA Database 
 #
-# 
+# 	Gian Marco Visani1,&, Thomas McNulty1,&, and Soha Hassoun1,2,* 
+#
+# 	1 Department of Computer Science, Tufts University, 161 College Ave, Medford, MA, 02155, USA 
+#
+# 	2 Department of Chemical and Biological Engineering, Tufts University, 4 Colby St, Medford, MA, 02155, USA 
+#
+# 	&Equal contribution. 
+#  
 
 import json
 import pandas as pd
