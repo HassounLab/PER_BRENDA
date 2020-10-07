@@ -1,14 +1,18 @@
 # 
 #
-#                       BRENDAExtract.py
-#  
-#       Authors:  Thomas McNulty 
+#                       perBRENDAExtract.py
+# 
 #       Date:     9/28/20
 #  
-#       summary
-#  
-#      Extract runner file. Extracts information from JSON based
-#      on provided command line arguments.  
+#      PER BRENDA: Parse and Extract tool for Machine Learning applications using the BRENDA Database 
+#
+# 	Gian Marco Visani1,&, Thomas McNulty1,&, and Soha Hassoun1,2,* 
+#
+# 	1 Department of Computer Science, Tufts University, 161 College Ave, Medford, MA, 02155, USA 
+#
+# 	2 Department of Chemical and Biological Engineering, Tufts University, 4 Colby St, Medford, MA, 02155, USA 
+#
+# 	&Equal contribution. 
 #  
 #  
 
