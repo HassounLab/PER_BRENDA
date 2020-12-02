@@ -59,7 +59,7 @@ def main():
 #Runner for parser, calls functions to convert text file into JSON
 def parseFile(brendaData, infile, outfile, errorfile, columnValues):
 
-	with open(infile) as brenda:
+	with open(infile, encoding="utf8") as brenda:
 		currID, prevLine, currSubClass = [""]*3
 
 		#processes each line by EC number and subcategory
