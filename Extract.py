@@ -145,11 +145,19 @@ class extract:
 		for ec in Extract:
 			for entry in Extract[ec]:
 				if productName in entry:
-					for comp in entry[productName]:
-						compList.add(comp)
+					if entry[productName]:
+						for comp in entry[productName]:
+							units = comp.split(" ",1)
+							if units[0].isnumeric() and len(units)>1:
+								comp = units[1]
+							compList.add(comp)
 				if substrateName in entry:
-					for comp in entry[substrateName]:
-						compList.add(comp)
+					if entry[substrateName]:
+						for comp in entry[substrateName]:
+							units = comp.split(" ",1)
+							if units[0].isnumeric() and len(units)>1:
+								comp = units[1]
+							compList.add(comp)
 		text_file = open(compFile, 'wt')
 		for line in compList:
 			text_file.write("%s\n" % line)
